@@ -1,9 +1,20 @@
 package com.komissarov.springstore.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "product")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "cost")
     private double cost;
 
     public void setId(int id) {

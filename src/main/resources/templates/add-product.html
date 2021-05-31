@@ -8,7 +8,6 @@
 <a href="/viewProducts">View products</a>
 
 <form action="#" th:action="@{/processForm}" th:object="${product}" method="post">
-    <p>Id: <input type="text" th:field="*{id}"/></p>
     <p>Title: <input type="text" th:field="*{title}"/></p>
     <p>Cost: <input type="text" th:field="*{cost}"/></p>
     <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
