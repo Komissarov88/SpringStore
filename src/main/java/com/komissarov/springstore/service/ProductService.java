@@ -1,27 +1,28 @@
 package com.komissarov.springstore.service;
 
-import com.komissarov.springstore.dao.ProductDao;
 import com.komissarov.springstore.entity.Product;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.komissarov.springstore.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProductService {
-    private ProductDao productDao;
+
+    private ProductRepository productRepository;
 
     @Autowired
-    public void setProductDao(ProductDao productDao) {
-        this.productDao = productDao;
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
-    public List<Product> getProducts() {
-        return productDao.findAll();
+    public List<Product> getProducts(int page) {
+        return productRepository.findAll(PageRequest.of(page, 5)).getContent();
     }
 
     public void addProduct(Product product) {
-        productDao.saveOrUpdate(product);
+        productRepository.save(product);
     }
 }
