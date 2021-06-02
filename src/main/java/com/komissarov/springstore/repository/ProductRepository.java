@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
 
-    List<Product> findAll();
-
+    List<Product> findAllByCostBetween(double min, double max);
 }

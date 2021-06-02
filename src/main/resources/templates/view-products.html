@@ -5,7 +5,6 @@
 <h1>View products</h1>
 <a href="/">Home</a>
 <a href="/addProduct">Add product</a>
-<h2>${currentPage}</h2>
 <ul>
     <tr th:each="product: ${products}">
         <td th:text="${product.id}"></td>
