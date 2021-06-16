@@ -5,19 +5,19 @@ volumes:
     driver: local
 
 networks:
-  postgres:
+  postgres-network:
     driver: bridge
 
 services:
   postgres:
-    image: postgres:9.5
+    image: postgres:9.6
     container_name: store-postgres
     volumes:
       - type: volume
         source: store-postgres
         target: /var/lib/postgresql/dataConfig
     networks:
-      - postgres
+      - postgres-network
     environment:
       POSTGRES_DB: store
       POSTGRES_USER: postgres

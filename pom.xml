@@ -12,15 +12,21 @@
     <artifactId>SpringStore</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringStore</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Store app on spring</description>
     <properties>
         <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -43,6 +49,13 @@
             <version>42.2.20</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -56,7 +69,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>5.2.1</version>
                 <configuration>
-                    <url>jdbc:postgresql://192.168.1.13:5435/store</url>
+                    <url>jdbc:postgresql://localhost:5435/store</url>
                     <user>postgres</user>
                     <password>postgrespass</password>
                     <schemas>
