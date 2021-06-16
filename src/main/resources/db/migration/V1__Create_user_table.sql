@@ -1,31 +1,68 @@
-CREATE TABLE public.product
+drop table if exists users;
+create table users
+(
+    id       serial,
+    login    varchar(50) DEFAULT NULL,
+    password varchar(68) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+insert into users (login, password)
+values ('user', '$2y$12$mO.X16/LtQ.b5Qj6ClK9peW6WoeM3iQYfeQw/qMA9frkhrLcMJvT6'),
+       ('admin', '$2y$12$mO.X16/LtQ.b5Qj6ClK9peW6WoeM3iQYfeQw/qMA9frkhrLcMJvT6');
+
+drop table if exists roles;
+create table roles
+(
+    id   serial,
+    name varchar(50) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+insert into roles (name)
+VALUES ('ROLE_USER'),
+       ('ROLE_ADMIN');
+
+drop table if exists user_role;
+create table user_role
+(
+    user_id integer not null references users(id),
+    role_id integer not null references roles(id),
+    primary key (user_id, role_id)
+);
+
+insert into user_role (user_id, role_id)
+values (1, 1),
+       (2, 1),
+       (2, 2);
+
+drop table if exists product;
+create table product
 (
     id    serial,
     title character varying(155) NOT NULL,
     cost  numeric(6, 4)          NOT NULL,
-    PRIMARY KEY (id)
-)
-    WITH (
-        OIDS = FALSE
-        );
+    primary key (id)
+);
 
-insert into public.product (title, cost) values ('product 1', 1);
-insert into public.product (title, cost) values ('product 2', 2);
-insert into public.product (title, cost) values ('product 3', 3);
-insert into public.product (title, cost) values ('product 4', 4);
-insert into public.product (title, cost) values ('product 5', 5);
-insert into public.product (title, cost) values ('product 6', 6);
-insert into public.product (title, cost) values ('product 7', 7);
-insert into public.product (title, cost) values ('product 8', 8);
-insert into public.product (title, cost) values ('product 9', 9);
-insert into public.product (title, cost) values ('product 10', 10);
-insert into public.product (title, cost) values ('product 11', 11);
-insert into public.product (title, cost) values ('product 12', 12);
-insert into public.product (title, cost) values ('product 13', 13);
-insert into public.product (title, cost) values ('product 14', 14);
-insert into public.product (title, cost) values ('product 15', 15);
-insert into public.product (title, cost) values ('product 16', 16);
-insert into public.product (title, cost) values ('product 17', 17);
-insert into public.product (title, cost) values ('product 18', 18);
-insert into public.product (title, cost) values ('product 19', 19);
-insert into public.product (title, cost) values ('product 20', 20);
+insert into product (title, cost)
+values ('product 1', 1),
+       ('product 2', 2),
+       ('product 3', 3),
+       ('product 4', 4),
+       ('product 5', 5),
+       ('product 6', 6),
+       ('product 7', 7),
+       ('product 8', 8),
+       ('product 9', 9),
+       ('product 10', 10),
+       ('product 11', 11),
+       ('product 12', 12),
+       ('product 13', 13),
+       ('product 14', 14),
+       ('product 15', 15),
+       ('product 16', 16),
+       ('product 17', 17),
+       ('product 18', 18),
+       ('product 19', 19),
+       ('product 20', 20);
