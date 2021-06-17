@@ -1,3 +1,5 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <!DOCTYPE html>
 
 <html>
@@ -7,7 +9,6 @@
 
 <body>
 <h1>Products page</h1>
-<a href="/addProduct">Add product</a>
-<a href="/viewProducts/0">View products</a>
+<div th:replace="header :: header"></div>
 </body>
 </html>
