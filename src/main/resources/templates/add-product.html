@@ -4,8 +4,7 @@
 </head>
 <body>
 <h1>Add products</h1>
-<a href="/">Home</a>
-<a href="/viewProducts/0">View products</a>
+<div th:replace="header :: header"></div>
 
 <form action="#" th:action="@{/processForm}" th:object="${product}" method="post">
     <p>Title: <input type="text" th:field="*{title}"/></p>

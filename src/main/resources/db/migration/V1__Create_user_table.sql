@@ -26,8 +26,8 @@ VALUES ('ROLE_USER'),
 drop table if exists user_role;
 create table user_role
 (
-    user_id integer not null references users(id),
-    role_id integer not null references roles(id),
+    user_id integer not null references users (id),
+    role_id integer not null references roles (id),
     primary key (user_id, role_id)
 );
 
@@ -66,3 +66,21 @@ values ('product 1', 1),
        ('product 18', 18),
        ('product 19', 19),
        ('product 20', 20);
+
+drop table if exists shop_order;
+create table shop_order
+(
+    id      serial,
+    user_id integer references users (id) not null,
+    status  varchar(50) default 'NEW_ORDER',
+    primary key (id)
+);
+
+drop table if exists order_item;
+create table order_item
+(
+    shop_order_id integer references shop_order (id) not null,
+    product_id    integer references product (id)    not null,
+    quantity      integer default 1,
+    primary key (shop_order_id, product_id)
+);
