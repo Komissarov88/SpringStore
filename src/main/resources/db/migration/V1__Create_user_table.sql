@@ -41,7 +41,7 @@ create table product
 (
     id    serial,
     title character varying(155) NOT NULL,
-    cost  numeric(6, 4)          NOT NULL,
+    cost  money                  NOT NULL,
     primary key (id)
 );
 
@@ -79,8 +79,9 @@ create table shop_order
 drop table if exists order_item;
 create table order_item
 (
+    id            serial,
     shop_order_id integer references shop_order (id) not null,
     product_id    integer references product (id)    not null,
     quantity      integer default 1,
-    primary key (shop_order_id, product_id)
+    primary key (id, shop_order_id, product_id)
 );

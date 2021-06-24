@@ -2,6 +2,7 @@ package com.komissarov.springstore.service.impl;
 
 import com.komissarov.springstore.entity.OrderItem;
 import com.komissarov.springstore.entity.ShopOrder;
+import com.komissarov.springstore.repository.OrderItemRepository;
 import com.komissarov.springstore.repository.OrderRepository;
 import com.komissarov.springstore.service.OrderService;
 import com.komissarov.springstore.service.UserService;
@@ -18,7 +19,13 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
 
     private OrderRepository orderRepository;
+    private OrderItemRepository orderItemRepository;
     private UserService userService;
+
+    @Autowired
+    public void setOrderItemRepository(OrderItemRepository orderItemRepository) {
+        this.orderItemRepository = orderItemRepository;
+    }
 
     @Autowired
     public void setUserService(UserService userService) {
@@ -48,9 +55,13 @@ public class OrderServiceImpl implements OrderService {
 
     private void saveCart(ShopOrder order, Cart cart) {
         ArrayList<OrderItem> items = new ArrayList<>(cart.getItems().size());
-        cart.getItems().forEach((k,v) -> items.add(new OrderItem(order.getId(), k.getId(), v)));
-        order.setOrderItems(items);
-        orderRepository.save(order);
+        cart.getItems().forEach((k,v) -> {
+            System.out.println(order.getId()+" "+ k.getId()+" "+  v);
+//            items.add(new OrderItem(order.getId(), k.getId(), v));
+            orderItemRepository.save(new OrderItem(order.getId(), k.getId(), v));
+        });
+//        order.setOrderItems(items);
+//        orderRepository.save(order);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.komissarov.springstore.service.impl;
 
 import com.komissarov.springstore.entity.Product;
 import com.komissarov.springstore.service.CartService;
+import com.komissarov.springstore.util.Cart;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -63,5 +64,13 @@ public class CartServiceImpl implements CartService {
             cart.forEach((k, v) -> sum.addAndGet((int) (k.getCost() * v)));
         }
         return sum.get();
+    }
+
+    @Override
+    public Cart getCart(HttpSession session) {
+        Map<Product, Integer> items = (Map<Product, Integer>) session.getAttribute("cart");
+        Cart cart = new Cart();
+        cart.setItems(items);
+        return cart;
     }
 }
