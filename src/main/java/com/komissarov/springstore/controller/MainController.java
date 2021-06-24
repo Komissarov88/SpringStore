@@ -3,7 +3,6 @@ package com.komissarov.springstore.controller;
 import com.komissarov.springstore.entity.Product;
 import com.komissarov.springstore.service.CartService;
 import com.komissarov.springstore.service.OrderService;
-import com.komissarov.springstore.util.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import com.komissarov.springstore.service.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 @Controller
 public class MainController {
@@ -67,14 +65,14 @@ public class MainController {
     }
 
     @RequestMapping("/order/save")
-    public String saveOrder(@ModelAttribute("cart") Cart cart) {
-        orderService.saveOrder(cart);
-        return "redirect:order/view";
+    public String saveOrder(HttpServletRequest request) {
+        orderService.saveOrder(cartService.getCart(request.getSession()));
+        return "redirect:view";
     }
 
     @RequestMapping("/order/view")
     public String viewOrders(Model uiModel) {
-//        uiModel.addAttribute("orders", orderService.getUserOrders());
+        uiModel.addAttribute("orders", orderService.getUserOrders());
         return "order";
     }
 

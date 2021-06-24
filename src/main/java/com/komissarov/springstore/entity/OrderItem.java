@@ -2,10 +2,7 @@ package com.komissarov.springstore.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -14,10 +11,13 @@ import java.io.Serializable;
 public class OrderItem implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
+
     @Column(name = "shop_order_id")
     private long orderId;
 
-    @Id
     @Column(name = "product_id")
     private long productId;
 

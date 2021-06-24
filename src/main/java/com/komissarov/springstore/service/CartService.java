@@ -1,6 +1,7 @@
 package com.komissarov.springstore.service;
 
 import com.komissarov.springstore.entity.Product;
+import com.komissarov.springstore.util.Cart;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,4 +15,6 @@ public interface CartService {
     void addCartIfAbsent(HttpSession session);
 
     int getTotalCost(HttpSession session);
+
+    Cart getCart(HttpSession session);
 }

@@ -27,7 +27,7 @@
     <h1 th:text="${totalCost}"></h1>
 </ul>
 <form action="#" th:action="@{/order/save}" method="post">
-    <input type="hidden" th:value="${session.cart}" name="items"/>
+<!--    <input type="hidden" th:value="${session.cart}" name="items"/>-->
     <p><input type="submit" value="Save order"/></p>
 </form>
 </body>
