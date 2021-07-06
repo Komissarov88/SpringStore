@@ -3,12 +3,11 @@ package com.komissarov.springstore.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Data
 @Table(name = "order_item")
-public class OrderItem implements Serializable {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +21,12 @@ public class OrderItem implements Serializable {
     private long productId;
 
     @Column(name = "quantity")
-    private int quantity;
+    private long quantity;
 
     public OrderItem() {
     }
 
-    public OrderItem(long orderId, long productId, int quantity) {
+    public OrderItem(long orderId, long productId, long quantity) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
