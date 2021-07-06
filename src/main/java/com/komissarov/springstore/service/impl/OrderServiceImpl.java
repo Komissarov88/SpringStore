@@ -12,7 +12,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -54,14 +53,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void saveCart(ShopOrder order, Cart cart) {
-        ArrayList<OrderItem> items = new ArrayList<>(cart.getItems().size());
-        cart.getItems().forEach((k,v) -> {
-            System.out.println(order.getId()+" "+ k.getId()+" "+  v);
-//            items.add(new OrderItem(order.getId(), k.getId(), v));
-            orderItemRepository.save(new OrderItem(order.getId(), k.getId(), v));
-        });
-//        order.setOrderItems(items);
-//        orderRepository.save(order);
+        cart.getItems().forEach((k,v) -> orderItemRepository.save(new OrderItem(order.getId(), k.getId(), v)));
     }
 
     @Override

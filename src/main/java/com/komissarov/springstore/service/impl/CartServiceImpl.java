@@ -21,7 +21,7 @@ public class CartServiceImpl implements CartService {
         if (product == null) {
             throw new IllegalArgumentException("product is null");
         }
-        cart.merge(product, 1, (k, v) -> v + 1);
+        cart.merge(product, 1, (old, one) -> old + 1);
     }
 
     @Override public void deleteProduct(HttpSession session, Product product) {
