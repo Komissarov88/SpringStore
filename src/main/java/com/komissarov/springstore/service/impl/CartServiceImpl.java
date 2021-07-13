@@ -13,7 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class CartServiceImpl implements CartService {
 
-    @Override public void addProduct(HttpSession session, Product product) {
+    @Override
+    public void addProduct(HttpSession session, Product product) {
         Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
         if (cart == null) {
             return;
@@ -24,7 +25,8 @@ public class CartServiceImpl implements CartService {
         cart.merge(product, 1, (old, one) -> old + 1);
     }
 
-    @Override public void deleteProduct(HttpSession session, Product product) {
+    @Override
+    public void deleteProduct(HttpSession session, Product product) {
         Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
         if (cart == null) {
             return;
@@ -35,7 +37,8 @@ public class CartServiceImpl implements CartService {
         cart.remove(product);
     }
 
-    @Override public void setProductCount(HttpSession session, Product product, int count) {
+    @Override
+    public void setProductCount(HttpSession session, Product product, int count) {
         Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
         if (cart == null) {
             return;
@@ -47,16 +50,18 @@ public class CartServiceImpl implements CartService {
             deleteProduct(session, product);
             return;
         }
-        cart.computeIfPresent(product, (k,v)->v = count);
+        cart.computeIfPresent(product, (k, v) -> v = count);
     }
 
-    @Override public void addCartIfAbsent(HttpSession session) {
+    @Override
+    public void addCartIfAbsent(HttpSession session) {
         if (session.getAttribute("cart") == null) {
             session.setAttribute("cart", new HashMap<Product, Integer>());
         }
     }
 
-    @Override public int getTotalCost(HttpSession session) {
+    @Override
+    public int getTotalCost(HttpSession session) {
         Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
         AtomicInteger sum = new AtomicInteger();
 
