@@ -44,7 +44,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void saveOrder(Cart cart) {
-        System.out.println(cart.getItems().size() + " SIZE");
         ShopOrder order = new ShopOrder();
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         order.setUserId(userService.findUserByLogin(userDetails.getUsername()).getId());
