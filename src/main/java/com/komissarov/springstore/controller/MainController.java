@@ -1,13 +1,11 @@
 package com.komissarov.springstore.controller;
 
 import com.komissarov.springstore.entity.Product;
-import com.komissarov.springstore.service.CartService;
-import com.komissarov.springstore.service.OrderService;
+import com.komissarov.springstore.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.komissarov.springstore.service.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +15,18 @@ public class MainController {
     private ProductService productService;
     private CartService cartService;
     private OrderService orderService;
+    private CartMapperService cartMapperService;
+    private RabbitSenderService senderService;
+
+    @Autowired
+    public void setCartMapperService(CartMapperService cartMapperService) {
+        this.cartMapperService = cartMapperService;
+    }
+
+    @Autowired
+    public void setSenderService(RabbitSenderService senderService) {
+        this.senderService = senderService;
+    }
 
     @Autowired
     public void setOrderService(OrderService orderService) {
@@ -66,7 +76,8 @@ public class MainController {
 
     @RequestMapping("/order/save")
     public String saveOrder(HttpServletRequest request) {
-        orderService.saveOrder(cartService.getCart(request.getSession()));
+        String serializedCart = cartMapperService.serialize(cartService.getCart(request.getSession()));
+        senderService.sendMessage(serializedCart);
         return "redirect:view";
     }
 
