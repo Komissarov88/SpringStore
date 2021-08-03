@@ -1,6 +1,6 @@
 package com.komissarov.spring.store.app.service.impl;
 
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import com.komissarov.spring.store.app.repository.ProductRepository;
 import com.komissarov.spring.store.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

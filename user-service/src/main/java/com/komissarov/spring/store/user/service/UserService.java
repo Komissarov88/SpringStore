@@ -1,6 +1,6 @@
-package com.komissarov.spring.store.app.service;
+package com.komissarov.spring.store.user.service;
 
-import com.komissarov.spring.store.app.entity.User;
+import com.komissarov.spring.store.common.entity.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

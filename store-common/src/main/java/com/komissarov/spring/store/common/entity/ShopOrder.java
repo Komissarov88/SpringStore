@@ -1,4 +1,4 @@
-package com.komissarov.spring.store.app.entity;
+package com.komissarov.spring.store.common.entity;
 
 import lombok.Data;
 

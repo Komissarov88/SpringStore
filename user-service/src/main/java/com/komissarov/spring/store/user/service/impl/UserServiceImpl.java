@@ -1,7 +1,7 @@
-package com.komissarov.spring.store.app.service.impl;
+package com.komissarov.spring.store.user.service.impl;
 
-import com.komissarov.spring.store.app.entity.Role;
-import com.komissarov.spring.store.app.entity.User;
+import com.komissarov.spring.store.common.entity.Role;
+import com.komissarov.spring.store.common.entity.User;
 import com.komissarov.spring.store.app.repository.UserRepository;
 import com.komissarov.spring.store.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

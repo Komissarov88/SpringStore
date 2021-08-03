@@ -1,6 +1,6 @@
 package com.komissarov.spring.store.app.repository;
 
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

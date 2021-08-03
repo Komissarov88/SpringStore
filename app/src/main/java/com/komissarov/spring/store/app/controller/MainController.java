@@ -1,7 +1,7 @@
 package com.komissarov.spring.store.app.controller;
 
 import com.komissarov.app.service.*;
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import com.komissarov.spring.store.app.service.*;
 import com.komissarov.springstore.service.*;
 import org.springframework.beans.factory.annotation.Autowired;

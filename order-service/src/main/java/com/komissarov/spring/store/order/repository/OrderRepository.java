@@ -1,6 +1,6 @@
-package com.komissarov.spring.store.app.repository;
+package com.komissarov.spring.store.order.repository;
 
-import com.komissarov.spring.store.app.entity.ShopOrder;
+import com.komissarov.spring.store.common.entity.ShopOrder;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

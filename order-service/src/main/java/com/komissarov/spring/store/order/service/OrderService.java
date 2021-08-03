@@ -1,6 +1,6 @@
-package com.komissarov.spring.store.app.service;
+package com.komissarov.spring.store.order.service;
 
-import com.komissarov.spring.store.app.entity.ShopOrder;
+import com.komissarov.spring.store.common.entity.ShopOrder;
 import com.komissarov.spring.store.app.util.Cart;
 
 import java.util.List;

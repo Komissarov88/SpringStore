@@ -1,6 +1,6 @@
 package com.komissarov.springstore;
 
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import io.florianlopes.spring.test.web.servlet.request.MockMvcRequestBuilderUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

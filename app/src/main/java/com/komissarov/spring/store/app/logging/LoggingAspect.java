@@ -1,6 +1,6 @@
 package com.komissarov.spring.store.app.logging;
 
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

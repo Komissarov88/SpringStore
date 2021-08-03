@@ -1,6 +1,6 @@
 package com.komissarov.spring.store.app.util;
 
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import lombok.Data;
 
 import java.util.HashMap;

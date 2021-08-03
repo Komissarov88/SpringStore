@@ -1,6 +1,6 @@
 package com.komissarov.spring.store.app.service;
 
-import com.komissarov.spring.store.app.entity.Product;
+import com.komissarov.spring.store.common.entity.Product;
 import com.komissarov.spring.store.app.util.Cart;
 
 import javax.servlet.http.HttpSession;

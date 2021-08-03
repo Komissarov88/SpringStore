@@ -18,7 +18,9 @@
         <module>eureka-service</module>
         <module>app</module>
         <module>order-service</module>
+        <module>user-service</module>
         <module>config-server</module>
+        <module>store-common</module>
     </modules>
 
     <description>Store app on spring</description>

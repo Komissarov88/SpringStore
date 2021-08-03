@@ -1,7 +1,7 @@
-package com.komissarov.spring.store.app.service.impl;
+package com.komissarov.spring.store.order.service.impl;
 
-import com.komissarov.spring.store.app.entity.OrderItem;
-import com.komissarov.spring.store.app.entity.ShopOrder;
+import com.komissarov.spring.store.common.entity.OrderItem;
+import com.komissarov.spring.store.common.entity.ShopOrder;
 import com.komissarov.spring.store.app.repository.OrderItemRepository;
 import com.komissarov.spring.store.app.repository.OrderRepository;
 import com.komissarov.spring.store.app.service.OrderService;

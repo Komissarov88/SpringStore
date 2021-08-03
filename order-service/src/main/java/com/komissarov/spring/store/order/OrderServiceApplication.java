@@ -1,4 +1,4 @@
-package com.komissarov.spring.store.order.service;
+package com.komissarov.spring.store.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
